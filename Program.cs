@@ -161,14 +161,14 @@ namespace TicketsConsole
                 //}
 
                 DateTime now = DateTime.Now;
-                DateTime birhDay = new DateTime(now.Year, customer.BirthDate.Month, customer.BirthDate.Day);
+                DateTime birthDay = new DateTime(now.Year, customer.BirthDate.Month, customer.BirthDate.Day);
 
-                if (customer.BirthDate < now)
+                if (birthDay < now)
                 {
-                    birhDay = birhDay.AddYears(1);
+                    birthDay = birthDay.AddYears(1);
                 }
 
-                List<Event> eventsBirthday = _events.Where(e => e.Date >= birhDay).OrderBy(d => d.Date).Take(numberOfEvents).ToList();
+                List<Event> eventsBirthday = _events.Where(e => e.Date >= birthDay).OrderBy(d => d.Date).Take(numberOfEvents).ToList();
 
                 //foreach (Event e in eventsBirthday)
                 //{
